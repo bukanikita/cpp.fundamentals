@@ -6,4 +6,4 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 
 message (cxx Flags  ${CMAKE_CXX_FLAGS})
 
-add_subdirectory(Days_01_02)
+add_subdirectory(Days_02_03)
