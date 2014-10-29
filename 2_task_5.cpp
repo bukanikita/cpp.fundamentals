@@ -8,7 +8,6 @@ double celsius_to_fahrenheit(double);
 
 int main()
 {
-	//const int months_in_year = 12;
 	double celsius, fahrenheit;
 	std::cout << "Please enter a Celsius value:\n";
 	while (!(std::cin >> celsius) && std::cin.fail())
