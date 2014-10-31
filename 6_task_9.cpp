@@ -15,8 +15,6 @@ struct donations
 
 };
 
-bool is_file_good(ifstream &);
-
 int main() 
 {
 	string file_name;
@@ -118,9 +116,4 @@ int main()
 	cin.get();
 
 	return 0;
-}
-
-bool is_file_good(ifstream & in_file)
-{
-	return in_file.good();
 }
