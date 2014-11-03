@@ -6,7 +6,7 @@ using std::cin;
 using std::endl;
 
 int Fill_array(double *, int);
-void Show_array(double *, int);
+void Show_array(const double *, int);
 void Reverse_array(double *, int);
 
 int main() 
@@ -50,7 +50,7 @@ int Fill_array(double *val, int _size)
 	return (i == _size) ? i : i -1;
 }
 
-void Show_array(double *val, int _size)
+void Show_array(const double *val, int _size)
 {
 	int i;
 	for (i = 0; i < _size; ++i)

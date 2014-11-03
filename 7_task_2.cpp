@@ -7,8 +7,8 @@ using std::cin;
 using std::endl;
 
 int get_data(double *, int);
-void show_results(double *, int);
-double average(double *, int);
+void show_results(const double *, int);
+double average(const double *, int);
 void wrong_input();
 
 int main() 
@@ -43,7 +43,7 @@ int get_data(double *res, int _size)
 	return (i == _size) ? i : i -1;
 }
 
-void show_results(double *res, int _size)
+void show_results(const double *res, int _size)
 {
 	int i;
 	cout << "Results:\n";
@@ -53,7 +53,7 @@ void show_results(double *res, int _size)
 	}
 }
 
-double average(double *res, int _size)
+double average(const double *res, int _size)
 {
 	double sum = 0.0;
 	int i;
