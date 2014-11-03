@@ -42,6 +42,8 @@ int main()
 	{
 		cout << cars[i].year << " " << cars[i].name << endl;
 	}
+	
+	delete [] cars;
 
 	cin.get();
 	cin.get();

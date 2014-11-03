@@ -39,6 +39,8 @@ int main()
 			<< "Weight: " << snack[i].weight << endl
 			<< "Calories: " << snack[i].calories << endl;
 	}
+	
+	delete [] snack;
 
 	cin.get();
 	cin.get();

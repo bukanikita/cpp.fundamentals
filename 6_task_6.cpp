@@ -70,6 +70,8 @@ int main()
 	{
 		cout << "none\n";
 	}
+	
+	delete [] data_of_donations;
 
 	cin.get();
 	cin.get();
