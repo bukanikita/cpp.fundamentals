@@ -89,3 +89,15 @@ add_executable(10_task_3 ${10_task_3_src})
 
 file(GLOB 10_task_4_src "10_task_4*.h" "10_task_4*.cpp")
 add_executable(10_task_4 ${10_task_4_src})
+
+file(GLOB 10_task_5_src "10_task_5*.h" "10_task_5*.cpp")
+add_executable(10_task_5 ${10_task_5_src})
+
+file(GLOB 10_task_6_src "10_task_6*.h" "10_task_6*.cpp")
+add_executable(10_task_6 ${10_task_6_src})
+
+file(GLOB 10_task_7_src "10_task_7*.h" "10_task_7*.cpp")
+add_executable(10_task_7 ${10_task_7_src})
+
+file(GLOB 10_task_8_src "10_task_8*.h" "10_task_8*.cpp")
+add_executable(10_task_8 ${10_task_8_src})
