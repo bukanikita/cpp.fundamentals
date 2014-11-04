@@ -68,12 +68,24 @@ add_executable (8_task_5 8_task_5.cpp)
 add_executable (8_task_6 8_task_6.cpp)
 add_executable (8_task_7 8_task_7.cpp)
 
-file(GLOB 9_task_1_src "9_task_1/*.h" "9_task_1/*.cpp")
+file(GLOB 9_task_1_src "9_task_1*.h" "9_task_1*.cpp")
 add_executable(9_task_1 ${9_task_1_src})
 
 add_executable (9_task_2 9_task_2.cpp)
 add_executable (9_task_3_1 9_task_3_1.cpp)
 add_executable (9_task_3_2 9_task_3_2.cpp)
 
-file(GLOB 9_task_4_src "9_task_4/*.h" "9_task_4/*.cpp")
+file(GLOB 9_task_4_src "9_task_4*.h" "9_task_4*.cpp")
 add_executable(9_task_4 ${9_task_4_src})
+
+file(GLOB 10_task_1_src "10_task_1*.h" "10_task_1*.cpp")
+add_executable(10_task_1 ${10_task_1_src})
+
+file(GLOB 10_task_2_src "10_task_2*.h" "10_task_2*.cpp")
+add_executable(10_task_2 ${10_task_2_src})
+
+file(GLOB 10_task_3_src "10_task_3*.h" "10_task_3*.cpp")
+add_executable(10_task_3 ${10_task_3_src})
+
+file(GLOB 10_task_4_src "10_task_4*.h" "10_task_4*.cpp")
+add_executable(10_task_4 ${10_task_4_src})

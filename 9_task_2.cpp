@@ -9,7 +9,6 @@ int main()
 {
     using namespace std;
     string input;
-    char next;
 
     cout << "Enter a line:\n";
 	getline(cin, input);
