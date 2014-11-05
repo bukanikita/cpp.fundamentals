@@ -122,3 +122,21 @@ add_executable(11_task_6 ${11_task_6_src})
 
 file(GLOB 11_task_7_src "11_task_7*.h" "11_task_7*.cpp")
 add_executable(11_task_7 ${11_task_7_src})
+
+file(GLOB 12_task_1_src "12_task_1*.h" "12_task_1*.cpp")
+add_executable(12_task_1 ${12_task_1_src})
+
+file(GLOB 12_task_2_src "12_task_2*.h" "12_task_2*.cpp")
+add_executable(12_task_2 ${12_task_2_src})
+
+file(GLOB 12_task_3_src "12_task_3*.h" "12_task_3*.cpp")
+add_executable(12_task_3 ${12_task_3_src})
+
+file(GLOB 12_task_4_src "12_task_4*.h" "12_task_4*.cpp")
+add_executable(12_task_4 ${12_task_4_src})
+
+file(GLOB 12_task_5_src "12_task_5*.h" "12_task_5*.cpp")
+add_executable(12_task_5 ${12_task_5_src})
+
+file(GLOB 12_task_6_src "12_task_6*.h" "12_task_6*.cpp")
+add_executable(12_task_6 ${12_task_6_src})
