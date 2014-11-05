@@ -101,3 +101,12 @@ add_executable(10_task_7 ${10_task_7_src})
 
 file(GLOB 10_task_8_src "10_task_8*.h" "10_task_8*.cpp")
 add_executable(10_task_8 ${10_task_8_src})
+
+file(GLOB 11_task_1_src "11_task_1*.h" "11_task_1*.cpp")
+add_executable(11_task_1 ${11_task_1_src})
+
+file(GLOB 11_task_2_src "11_task_2*.h" "11_task_2*.cpp")
+add_executable(11_task_2 ${11_task_2_src})
+
+file(GLOB 11_task_3_src "11_task_3*.h" "11_task_3*.cpp")
+add_executable(11_task_3 ${11_task_3_src})

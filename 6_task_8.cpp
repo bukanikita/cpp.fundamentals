@@ -31,6 +31,8 @@ int main()
 		number_of_symbols++;
 	}
 
+	file.close();
+
 	number_of_symbols--;
 	
 	cout << "Symbols in file: " << number_of_symbols << endl;

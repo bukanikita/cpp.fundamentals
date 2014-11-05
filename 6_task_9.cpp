@@ -39,6 +39,7 @@ int main()
 		if (!(file >> number_of_patrons))
 		{
 			cout << "Error in the first parameter in file.\n";
+			file.close();
 			return 2;
 		}
 		if (number_of_patrons < 0)
@@ -49,6 +50,7 @@ int main()
 	catch (const std::invalid_argument& e)
 	{
 		cout << e.what() << endl;
+		file.close();
 		return 3;
 	}
 
@@ -59,6 +61,7 @@ int main()
 	catch (std::bad_alloc &e)
 	{
 		cout << e.what() << endl;
+		file.close();
 		return 4;
 	}
 
@@ -77,6 +80,8 @@ int main()
 	if (i != number_of_patrons)
 	{
 		cout << "Data in file is corrupted\n";
+		file.close();
+		delete [] data_of_donations;
 		return 5;
 	}
 
@@ -111,7 +116,8 @@ int main()
 	{
 		cout << "none\n";
 	}
-	
+
+	file.close();
 	delete [] data_of_donations;
 	
 	cin.get();
