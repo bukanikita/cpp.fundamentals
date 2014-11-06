@@ -140,3 +140,15 @@ add_executable(12_task_5 ${12_task_5_src})
 
 file(GLOB 12_task_6_src "12_task_6*.h" "12_task_6*.cpp")
 add_executable(12_task_6 ${12_task_6_src})
+
+file(GLOB 13_task_1_src "13_task_1*.h" "13_task_1*.cpp")
+add_executable(13_task_1 ${13_task_1_src})
+
+file(GLOB 13_task_2_src "13_task_2*.h" "13_task_2*.cpp")
+add_executable(13_task_2 ${13_task_2_src})
+
+file(GLOB 13_task_3_src "13_task_3*.h" "13_task_3*.cpp")
+add_executable(13_task_3 ${13_task_3_src})
+
+file(GLOB 13_task_4_src "13_task_4*.h" "13_task_4*.cpp")
+add_executable(13_task_4 ${13_task_4_src})
