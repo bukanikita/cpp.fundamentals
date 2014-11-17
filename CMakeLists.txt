@@ -193,3 +193,8 @@ add_executable (17_task_2 17_task_2_main.cpp)
 add_executable (17_task_3 17_task_3_main.cpp)
 add_executable (17_task_4 17_task_4_main.cpp)
 add_executable (17_task_5 17_task_5_main.cpp)
+
+file(GLOB 17_task_6_src "17_task_6*.h" "17_task_6*.cpp")
+add_executable(17_task_6 ${17_task_6_src})
+
+add_executable (17_task_7 17_task_7_main.cpp)
