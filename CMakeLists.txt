@@ -4,6 +4,11 @@ project (all_programming_exercises)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 
+set(CMAKE_C_COMPILER "C:\\MinGW\\bin\\gcc")
+set(CMAKE_CXX_COMPILER "C:\\MinGW\\bin\\g++")
+
+message("compiler is : ${CMAKE_CXX_COMPILER_ID}")
+
 message (cxx Flags  ${CMAKE_CXX_FLAGS})
 
 add_executable (2_task_1 2_task_1.cpp)
@@ -198,3 +203,8 @@ file(GLOB 17_task_6_src "17_task_6*.h" "17_task_6*.cpp")
 add_executable(17_task_6 ${17_task_6_src})
 
 add_executable (17_task_7 17_task_7_main.cpp)
+
+file(GLOB 18_task_2_src "18_task_2*.h" "18_task_2*.cpp")
+add_executable(18_task_2 ${18_task_2_src})
+
+add_executable (18_task_4 18_task_4_main.cpp)
