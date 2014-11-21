@@ -18,22 +18,39 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_factory.cpp">
+    <ClCompile Include="ClassFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="register.cpp">
+    <ClCompile Include="registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AvidContextMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AvidFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClassFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_factory.h">
+    <ClInclude Include="registry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="register.h">
+    <ClInclude Include="AvidContextMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AvidFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Avid_the_best.def">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

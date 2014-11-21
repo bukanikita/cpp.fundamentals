@@ -1,11 +1,11 @@
-#include "class_factory.h"
-#include "register.h"
+#include "ClassFactory.h"
+#include "registry.h"
 
 HINSTANCE g_hInst = NULL;
 long g_cDllRef = 0;
 
 // GUID for Avid the best: {CF23BECA-7628-4b50-AB9A-A34F91A8A334}
-static const GUID CLSID_Avid_the_best = { 0xcf23beca, 0x7628, 0x4b50, { 0xab, 0x9a, 0xa3, 0x4f, 0x91, 0xa8, 0xa3, 0x34 } };
+static const GUID CLSID_Avid_the_best = { 0xfaac23b3, 0xc327, 0x41ee, { 0x9d, 0xe3, 0x92, 0xf, 0x2, 0x9d, 0x5, 0x14 } };
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved)
 {
@@ -76,7 +76,7 @@ STDAPI DllRegisterServer()
 
 	// Register the component.
 	hr = RegisterInprocServer(szModule, CLSID_Avid_the_best, 
-		L"Avid_the_best.file_context_menu Class", 
+		L"Avid_the_best.AvidContextMenu Class", 
 		L"Apartment");
 	if (SUCCEEDED(hr))
 	{
@@ -84,7 +84,7 @@ STDAPI DllRegisterServer()
 		// associated with the .cpp file class.
 		hr = RegisterShellExtContextMenuHandler(L"*", 
 			CLSID_Avid_the_best, 
-			L"Avid_the_best.file_context_menu");
+			L"Avid_the_best.AvidContextMenu");
 	}
 
 	return hr;

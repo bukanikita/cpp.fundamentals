@@ -6,6 +6,9 @@
 #include <exception>
 #include <new>
 #include <Shlwapi.h>
+#include <shlobj.h>
+#include <set>
+#include <atlstr.h>
 #include <strsafe.h>
 
 #pragma comment(lib, "shlwapi.lib")
