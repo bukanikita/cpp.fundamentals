@@ -12,6 +12,7 @@ private:
 	wchar_t m_szSelectedFile[MAX_PATH]; // The name of the selected file.
 	std::set<AvidFile> all_files;
 	void OnVerbDisplayFileName(HWND); // The method that handles the "display" verb.
+	//void calc_all_files(HWND);
 	PWSTR m_pszMenuText;
 	PCSTR m_pszVerb;
 	PCWSTR m_pwszVerb;
@@ -30,39 +31,7 @@ public:
     IFACEMETHODIMP Initialize(LPCITEMIDLIST, LPDATAOBJECT, HKEY);// Initialize the context menu handler.
     IFACEMETHODIMP QueryContextMenu(HMENU, UINT, UINT, UINT, UINT); // Function for adding items in context menu
     IFACEMETHODIMP InvokeCommand(LPCMINVOKECOMMANDINFO); // method for running command, when user clicks item
-	IFACEMETHODIMP GetCommandString(UINT_PTR idCommand, 
-		UINT uFlags, UINT *pwReserved, LPSTR pszName, UINT cchMax) {
-		HRESULT hr = E_INVALIDARG;
-
-		if (idCommand == IDM_DISPLAY)
-		{
-			switch (uFlags)
-			{
-			case GCS_HELPTEXTW:
-				// Only useful for pre-Vista versions of Windows that have a 
-				// Status bar.
-				hr = StringCchCopy(reinterpret_cast<PWSTR>(pszName), cchMax, 
-					m_pwszVerbHelpText);
-				break;
-
-			case GCS_VERBW:
-				// GCS_VERBW is an optional feature that enables a caller to 
-				// discover the canonical name for the verb passed in through 
-				// idCommand.
-				hr = StringCchCopy(reinterpret_cast<PWSTR>(pszName), cchMax, 
-					m_pwszVerbCanonicalName);
-				break;
-
-			default:
-				hr = S_OK;
-			}
-		}
-
-		// If the command (idCommand) is not supported by this context menu 
-		// extension handler, return E_INVALIDARG.
-
-		return hr;
-	};
+	IFACEMETHODIMP GetCommandString(UINT_PTR idCommand, UINT uFlags, UINT *pwReserved, LPSTR pszName, UINT cchMax) { return S_OK; };
 };
 
 #endif

@@ -10,6 +10,9 @@
 #include <set>
 #include <atlstr.h>
 #include <strsafe.h>
+#include <fstream>
+#include <string>
+#include <thread>
 
 #pragma comment(lib, "shlwapi.lib")
 
