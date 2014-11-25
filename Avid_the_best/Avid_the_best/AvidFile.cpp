@@ -2,14 +2,15 @@
 
 AvidFile::AvidFile(const wstring &_name)
 {
+	ready = false; // file isn't ready at start
 	name = _name;
 	all_info = L"Name: " + name.substr(name.find_last_of(L"/\\") + 1) + L"; ";
-	get_info();
 }
 
 void AvidFile::get_info()
 {
-	HANDLE hFile = CreateFile(
+	// trying to open file
+	HANDLE hFile = CreateFile( 
 					name.c_str(),
 					FILE_READ_DATA,
 					FILE_SHARE_READ | FILE_SHARE_WRITE,
@@ -25,28 +26,29 @@ void AvidFile::get_info()
 	}
 	else
 	{
-		all_info += L"Size: undefined; Creation date: undefined; ";
+		all_info += L"Size: undefined; Creation date: undefined; "; // if problems with opening
 	}
-	get_checksum();
+	get_sum(); 
+	ready = true; // file is ready
 }
 
 bool AvidFile::operator<(const AvidFile &av_file) const
 {
-	return name < av_file.name;
+	return name < av_file.name; // sorting by name
 }
 
 void AvidFile::get_size(const HANDLE &_hFile)
 {
-	const int bytes_num = 4;
+	const int bytes_num = 4; 
 	un_l_l temp;
-	const un_l_l bytes_val[bytes_num] = {1, 1 << 10, 1 << 20, 1 << 30};
+	const un_l_l bytes_val[bytes_num] = {1, 1 << 10, 1 << 20, 1 << 30}; // bytes in KB, MB, GB
 	const wstring bytes_names[bytes_num] = {L"B", L"KB", L"MB", L"GB"};
 	DWORD file_size = 0;
 	file_size = GetFileSize(_hFile, NULL);
 	if (file_size)
 	{
 		all_info += L"Size:";
-		for (int i = bytes_num - 1; i >= 0; --i)
+		for (int i = bytes_num - 1; i >= 0; --i) // getting file size in format, which is pretty
 		{
 			temp = file_size / bytes_val[i];
 			if (temp)
@@ -89,7 +91,7 @@ void AvidFile::get_date(const HANDLE &_hFile)
 	}
 }
 
-void AvidFile::get_checksum()
+void AvidFile::get_sum()
 {
 	std::ifstream file (name, std::ios::binary);
 	char c;

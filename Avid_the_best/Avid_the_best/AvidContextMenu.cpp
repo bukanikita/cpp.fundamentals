@@ -2,35 +2,7 @@
 
 extern HINSTANCE g_hInst;
 extern long g_cDllRef;
-/*
-INT CBTMessageBox(HWND,LPSTR,LPSTR,UINT);
-LRESULT CALLBACK CBTProc(INT, WPARAM, LPARAM);
 
-HHOOK hhk;
-
-INT CBTMessageBox(HWND hwnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
-{
-	hhk = SetWindowsHookEx(WH_CBT, &CBTProc, 0, GetCurrentThreadId());
-	return MessageBox(hwnd, lpText, lpCaption, uType);
-}
-
-LRESULT CALLBACK CBTProc(INT nCode, WPARAM wParam, LPARAM lParam)
-{
-	HWND hChildWnd;
-	if (nCode == HCBT_ACTIVATE)
-	{
-		hChildWnd = (HWND)wParam;
-		HWND label = GetDlgItem(hChildWnd, 0xFFFF);
-		EnableScrollBar (label, SB_VERT, ESB_ENABLE_BOTH);
-		UnhookWindowsHookEx(hhk);
-	}
-	else 
-	{
-		CallNextHookEx(hhk, nCode, wParam, lParam);
-	}
-	return 0;
-}
-*/
 AvidContextMenu::AvidContextMenu() : m_cRef(1), 
 	m_pszMenuText(L"Avid show information"),
 	m_pszVerb("avidshow"),
@@ -50,12 +22,48 @@ AvidContextMenu::~AvidContextMenu()
 
 void AvidContextMenu::OnVerbDisplayFileName(HWND hWnd)
 {
-	std::wstring full_text = L"";
-	for (auto name : all_files)
+	try // try to get info
 	{
-		full_text += name.Show();
+		FileProc proc(all_files.begin(), all_files.end());
+		if (proc.proc()) // if processing had success 
+		{
+			int j; // for items_to_display number of elements in MessageBox
+			std::wstring full_text; // text in message box
+			std::set<AvidFile>::iterator start; // starting iterator for every MessageBox
+			for (unsigned int i = 0; i < all_files.size(); i += items_to_display) // dispaly items_to_display elements
+			{
+				if (i == 0) // if the first MessageBox we start from begin of container
+				{
+					start = all_files.begin();
+				}
+				j = 0;
+				full_text = L""; // empty text at the start
+				std::set<AvidFile>::iterator it;
+				for (it = start; j < items_to_display && it != all_files.end(); ++it, ++j)
+				{
+					full_text += (*it).Show();
+				}
+				MessageBox(hWnd, full_text.c_str(), L"Avid information", MB_OK);
+				start = it;
+			}
+		}
+		else
+		{
+			throw std::exception("Problems with proc function!\n");
+		}
 	}
-	MessageBox(hWnd, full_text.c_str(), L"Avid information", MB_OK);
+	catch (std::exception &e) 
+	{
+		int mes_length =  MultiByteToWideChar( CP_UTF8 , 0 , e.what() , -1, NULL , 0 );
+		wchar_t* mes_error = new wchar_t[mes_length];
+		MultiByteToWideChar( CP_UTF8 , 0 , e.what() , -1, mes_error, mes_length);
+		MessageBox(hWnd, mes_error, L"Avid information", MB_OK);
+		delete[] mes_error;
+	}
+	catch (...)
+	{
+		MessageBox(hWnd, L"Unknown exception occurred!\n", L"Avid information", MB_OK);
+	}
 }
 
 IFACEMETHODIMP AvidContextMenu::QueryInterface(REFIID riid, void **ppv)

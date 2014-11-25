@@ -151,12 +151,14 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="AvidContextMenu.cpp" />
     <ClCompile Include="AvidFile.cpp" />
+    <ClCompile Include="FileProc.cpp" />
     <ClCompile Include="registry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AvidFile.h" />
     <ClInclude Include="ClassFactory.h" />
     <ClInclude Include="AvidContextMenu.h" />
+    <ClInclude Include="FileProc.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="registry.h" />
   </ItemGroup>

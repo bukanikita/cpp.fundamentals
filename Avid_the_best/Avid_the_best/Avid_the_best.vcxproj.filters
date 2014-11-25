@@ -30,6 +30,9 @@
     <ClCompile Include="AvidFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileProc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassFactory.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AvidFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileProc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

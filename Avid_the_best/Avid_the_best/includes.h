@@ -13,6 +13,9 @@
 #include <fstream>
 #include <string>
 #include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <list>
 
 #pragma comment(lib, "shlwapi.lib")
 

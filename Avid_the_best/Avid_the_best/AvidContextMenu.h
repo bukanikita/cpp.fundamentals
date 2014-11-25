@@ -3,16 +3,17 @@
 
 #include "includes.h"
 #include "AvidFile.h"
+#include "FileProc.h"
 
 class AvidContextMenu : public IShellExtInit, public IContextMenu
 {
 private:
+	static const int items_to_display = 20;
 	static const int IDM_DISPLAY = 0;
 	long m_cRef; // Reference count of component.
 	wchar_t m_szSelectedFile[MAX_PATH]; // The name of the selected file.
 	std::set<AvidFile> all_files;
 	void OnVerbDisplayFileName(HWND); // The method that handles the "display" verb.
-	//void calc_all_files(HWND);
 	PWSTR m_pszMenuText;
 	PCSTR m_pszVerb;
 	PCWSTR m_pwszVerb;
